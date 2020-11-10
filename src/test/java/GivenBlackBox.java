@@ -61,10 +61,31 @@ public class GivenBlackBox {
 
     BearWorkshop twoBears;
     Double twoBearsExpected;
+    
+    BearWorkshop removeBear;
+    Double removeBearExpected;
+    
+    BearWorkshop downBears;
+    Double downBearsExpected;
 
     @Before
     public void setUp() throws Exception {
+    	
+    	//3 Bears with down stuffing
+    	downBears = createBearWorkshop("NY");
+    	downBears.addBear(new Bear(Stuffing.stuffing.DOWN));
+    	downBears.addBear(new Bear(Stuffing.stuffing.DOWN));
+    	downBears.addBear(new Bear(Stuffing.stuffing.DOWN));
+    	downBearsExpected = 40.00;
 
+    	//Remove a free bear
+    	removeBear = createBearWorkshop("NY");
+    	removeBear.addBear(new Bear(Stuffing.stuffing.BASE));
+    	removeBear.addBear(new Bear(Stuffing.stuffing.BASE));
+    	removeBear.addBear(new Bear(Stuffing.stuffing.BASE));
+    	removeBear.removeBear(new Bear(Stuffing.stuffing.BASE));
+    	removeBearExpected = 0.00;
+    	
         // One Bear base stuffing, no saving expected
         oneBear = createBearWorkshop("NY");
         oneBear.addBear(new Bear(Stuffing.stuffing.BASE));
@@ -124,5 +145,20 @@ public class GivenBlackBox {
         Double ans = bears.calculateSavings();
         assertEquals(bearsExpected, ans, 0.005);
     }
+    
+    //Test if a Bear is removed, is it's saving removed.
+    @Test
+    public void removeBearNoSavings() {
+    	Double ans = removeBear.calculateSavings();
+    	assertEquals(removeBearExpected, ans);		
+    }
+    
+    //Test if proper discount is applied with down bears
+    @Test
+    public void downBearsSaving() {
+    	Double ans = downBears.calculateSavings();
+    	assertEquals(downBearsExpected, ans);
+    }
+    
 
 }
