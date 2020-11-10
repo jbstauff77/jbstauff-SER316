@@ -145,7 +145,70 @@ public class GivenBlackBox {
         Double ans = bears.calculateSavings();
         assertEquals(bearsExpected, ans, 0.005);
     }
-    
+    //Test a Bear with 10 paid items of clothing.
+    @Test
+    public void oneBearTest15ClothesSavings() {
+        BearWorkshop bears = null;
+        try {
+            bears = createBearWorkshop("DC");
+        } catch (Exception e) {
+        }
+        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        bears.addBear(customBear);
+
+	    customBear.clothing.add(new Clothing(4, "Hat"));
+	    customBear.clothing.add(new Clothing(4, "Sunglasses"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(3, "Gloves"));
+	    customBear.clothing.add(new Clothing(3, "Socks"));
+	    customBear.clothing.add(new Clothing(3, "Necklace"));
+	    customBear.clothing.add(new Clothing(3, "Shirt"));
+	    customBear.clothing.add(new Clothing(3, "Shorts"));
+	    
+	    
+        Double bearsExpected = 22.0;
+        Double ans = bears.calculateSavings();
+        assertEquals(bearsExpected, ans, 0.005);
+    }
+    //Test a Bear with 10 paid items of clothing.
+    @Test
+    public void oneBearTest14ClothesSavings() {
+        BearWorkshop bears = null;
+        try {
+            bears = createBearWorkshop("DC");
+        } catch (Exception e) {
+        }
+        Bear customBear = new Bear(Stuffing.stuffing.BASE);
+        bears.addBear(customBear);
+
+	    customBear.clothing.add(new Clothing(4, "Hat"));
+	    customBear.clothing.add(new Clothing(4, "Sunglasses"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(4, "Shoes"));
+	    customBear.clothing.add(new Clothing(3, "Gloves"));
+	    customBear.clothing.add(new Clothing(3, "Socks"));
+	    customBear.clothing.add(new Clothing(3, "Necklace"));
+	    customBear.clothing.add(new Clothing(3, "Shirt"));
+	    
+	    
+	    
+        Double bearsExpected = 19.0;
+        Double ans = bears.calculateSavings();
+        assertEquals(bearsExpected, ans, 0.005);
+    }
     //Test if a Bear is removed, is it's saving removed.
     @Test
     public void removeBearNoSavings() {
