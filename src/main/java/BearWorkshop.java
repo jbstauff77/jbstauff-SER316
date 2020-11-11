@@ -212,78 +212,70 @@ public class BearWorkshop implements BearWorkshopInterface{
      * @return the savings if the customer would check out as double
      */
     public double calculateSavings() {
-    	
-    	
+
+
     	double bogoBearSavings = 0;
     	double bogoClothesSavings = 0;
     	double tenPercentSavings = 0;
     	double totalSavings = 0;
     	int numberOfFreeBears = 0;
     	int numberOfFreeClothes = 0;
-    
-  
-    	
+
+
+
     	//Determines clothing savings
     	numberOfFreeBears = BearCart.size()/3;  
-    
+
     	double[] temp2 = new double [BearCart.size()];
     	int index2 = 0;
-    	
+
     	for(Bear bear : BearCart) {
-    		
-    	
+	
+
     		temp2[index2] = bear.price;
-    		
+
     		index2++;
-    		
+		
     		double[] temp1 = new double [bear.clothing.size()];
-    		
+
     		int index1 = 0;
-    		
+
     		for(Clothing clothing : bear.clothing) {
-    			
+
     			if (clothing != null) {
-    			
+
     				numberOfFreeClothes = bear.clothing.size()/2;
 
     				temp1[index1] = clothing.price;
-    				
+			
     				index1++;
-    					
+	
     			}
     		}
     		Arrays.sort(temp1);
-    			
+	
     		for(int i = 0; i < numberOfFreeClothes; i++) {
-    				
+		
     			bogoClothesSavings += temp1[i];
     		}
-        	
+
     		if (numberOfFreeClothes >= 10) {
-    			
+	
     			tenPercentSavings += bear.price * .1;
 
     		}
-    			
-    		
-    		
+
     	}
-    	
+
     	Arrays.sort(temp2);
-    	
+
     	for(int i = 0; i < numberOfFreeBears; i++) {
-    		
+	
     		bogoBearSavings += temp2[i];
     	}
-    	
-    	
-    	
-    	
-    
+
     	totalSavings = bogoBearSavings + tenPercentSavings + bogoClothesSavings;
 		return totalSavings;
-       
-    	
-        
+
     }
 }
