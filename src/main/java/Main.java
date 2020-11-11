@@ -16,6 +16,12 @@ public class Main {
         workshop.addBear(bear3);
         workshop.addBear(bear1);
         
+    	
+    	
+        System.out.println(workshop.calculateSavings());
+        
+        System.out.println("Here");
+       
         System.out.println(bear1.price);
         
         System.out.println(workshop.getCost(bear2));

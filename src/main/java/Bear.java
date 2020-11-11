@@ -31,7 +31,13 @@ public class Bear implements Comparable<Bear>{
         noisemakers = new LinkedList<>();
         clothing = new LinkedList<>();
         ink = new Embroidery("");
-        price = 0;
+        if(stuff == stuffing.BASE) {
+        	price = 30.00;
+        }else if(stuff == stuffing.DOWN) {
+        	price = 40.00;
+        }else if(stuff == stuffing.FOAM) {
+        	price = 50.00;
+        }
     }
 
     public void setPrice(double incomingPrice) {
